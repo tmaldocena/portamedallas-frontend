@@ -1,0 +1,464 @@
+[
+    {
+        "product_id": "PER00",
+        "product_name": "Personalizado",
+        "product_price": 150000,
+        "product_slug": "personalizados",
+        "product_category": "Personalizados"
+    },
+    {
+        "product_id": "RGE01 ",
+        "product_name": "Running Hombre",
+        "product_price": 100000,
+        "product_slug": "running-masculino",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "RFR02",
+        "product_name": "Running Femenino Rosado",
+        "product_price": 100000,
+        "product_slug": "running-femenino",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "RFN02",
+        "product_name": "Running Femenino Negro",
+        "product_price": 100000,
+        "product_slug": "running-femenino",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "RNF03",
+        "product_name": "Runner Femenino",
+        "product_price": 100000,
+        "product_slug": "runner-femenino",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "RNM04",
+        "product_name": "Runner Masculino",
+        "product_price": 100000,
+        "product_slug": "runner-masculino",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "RMA05",
+        "product_name": "Run Masculino",
+        "product_price": 70000,
+        "product_slug": "run-masculino",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "DDF06",
+        "product_name": "Distancias 10K Femenino",
+        "product_price": 100000,
+        "product_slug": "10k-femenino",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "DDM07",
+        "product_name": "Distancias 10K Masculino",
+        "product_price": 100000,
+        "product_slug": "10k-masculino",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "DVF08",
+        "product_name": "Distancias 21K Femenino",
+        "product_price": 100000,
+        "product_slug": "21k-femenino",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "DVM09",
+        "product_name": "Distancias 21K Masculino",
+        "product_price": 100000,
+        "product_slug": "21k-masculino",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "DCM10",
+        "product_name": "Distancias 42K Masculino",
+        "product_price": 100000,
+        "product_slug": "42k-masculino",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "DIS11",
+        "product_name": "Distancias 10-21-42",
+        "product_price": 100000,
+        "product_slug": "distancias-10-21-42",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "SOF12",
+        "product_name": "So She did",
+        "product_price": 120000,
+        "product_slug": "so-she-did",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "TRA13",
+        "product_name": "Trail Runnig",
+        "product_price": 100000,
+        "product_slug": "trail-running",
+        "product_category": "Running"
+    },
+    {
+        "product_id": "PRF14",
+        "product_name": "Portanúmeros Femenino",
+        "product_price": 130000,
+        "product_slug": "portanumeros-femenino",
+        "product_category": "Portanumeros"
+    },
+    {
+        "product_id": "PRM15",
+        "product_name": "Portanúmeros Masculino",
+        "product_price": 130000,
+        "product_slug": "portanumeros-masculino",
+        "product_category": "Portanumeros"
+    },
+    {
+        "product_id": "WWM16",
+        "product_name": "WWM",
+        "product_price": 210000,
+        "product_slug": "wwm",
+        "product_category": "WWM"
+    },
+    {
+        "product_id": "IRO17",
+        "product_name": "Ironman",
+        "product_price": 130000,
+        "product_slug": "ironman",
+        "product_category": "Ironman"
+    },
+    {
+        "product_id": "TRM18",
+        "product_name": "Triatlón Masculino",
+        "product_price": 100000,
+        "product_slug": "triatlon-masculino",
+        "product_category": "Triatlon"
+    },
+    {
+        "product_id": "TRF19",
+        "product_name": "Triatlón Femenino",
+        "product_price": 100000,
+        "product_slug": "triatlon-femenino",
+        "product_category": "Triatlon"
+    },
+    {
+        "product_id": "DUM20 ",
+        "product_name": "Duatlón masculino",
+        "product_price": 100000,
+        "product_slug": "duatlon-masculino",
+        "product_category": "Duatlon"
+    },
+    {
+        "product_id": "DFR21",
+        "product_name": "Duatlón Femenino Rosado",
+        "product_price": 100000,
+        "product_slug": "duatlon-femenino",
+        "product_category": "Duatlon"
+    },
+    {
+        "product_id": "DFN21",
+        "product_name": "Duatlón Femenino Negro",
+        "product_price": 100000,
+        "product_slug": "duatlon-femenino",
+        "product_category": "Duatlon"
+    },
+    {
+        "product_id": "CIC22",
+        "product_name": "Ciclismo Ruta",
+        "product_price": 100000,
+        "product_slug": "ciclismo-ruta",
+        "product_category": "Duatlon"
+    },
+    {
+        "product_id": "BFR23",
+        "product_name": "BMX Femenino Rosado",
+        "product_price": 100000,
+        "product_slug": "bmx-femenino",
+        "product_category": "BMX"
+    },
+    {
+        "product_id": "BFN23",
+        "product_name": "BMX Femenino Negro",
+        "product_price": 100000,
+        "product_slug": "bmx-femenino",
+        "product_category": "BMX"
+    },
+    {
+        "product_id": "BMM24",
+        "product_name": "BMX Hombre",
+        "product_price": 100000,
+        "product_slug": "bmx-masculino",
+        "product_category": "BMX"
+    },
+    {
+        "product_id": "MOB25",
+        "product_name": "Mountain Bike",
+        "product_price": 100000,
+        "product_slug": "mountain-bike",
+        "product_category": "Mountain Bike"
+    },
+    {
+        "product_id": "BAL26",
+        "product_name": "Baloncesto",
+        "product_price": 100000,
+        "product_slug": "baloncesto",
+        "product_category": "Baloncesto"
+    },
+    {
+        "product_id": "BEL27",
+        "product_name": "Baseball",
+        "product_price": 100000,
+        "product_slug": "baseball",
+        "product_category": "Baseball"
+    },
+    {
+        "product_id": "SBL28",
+        "product_name": "Softball",
+        "product_price": 100000,
+        "product_slug": "softball",
+        "product_category": "Softball"
+    },
+    {
+        "product_id": "CLA29",
+        "product_name": "Clavado",
+        "product_price": 100000,
+        "product_slug": "clavado",
+        "product_category": "Clavado"
+    },
+    {
+        "product_id": "EQU30",
+        "product_name": "Equitación",
+        "product_price": 100000,
+        "product_slug": "equitacion",
+        "product_category": "Equitacion"
+    },
+    {
+        "product_id": "FTF31",
+        "product_name": "Fútbol Femenino",
+        "product_price": 100000,
+        "product_slug": "futbol-femenino",
+        "product_category": "Futbol"
+    },
+    {
+        "product_id": "FTM32",
+        "product_name": "Fútbol Masculino",
+        "product_price": 100000,
+        "product_slug": "futbol-masculino",
+        "product_category": "Futbol"
+    },
+    {
+        "product_id": "GIR33",
+        "product_name": "Gimnast Rosado",
+        "product_price": 100000,
+        "product_slug": "gimnast",
+        "product_category": "Gimnast"
+    },
+    {
+        "product_id": "GIN34",
+        "product_name": "Gimnast Negro",
+        "product_price": 100000,
+        "product_slug": "gimnast",
+        "product_category": "Gimnast"
+    },
+    {
+        "product_id": "GFR35",
+        "product_name": "Golf Femenino Rosado",
+        "product_price": 100000,
+        "product_slug": "golf-femenino",
+        "product_category": "Golf"
+    },
+    {
+        "product_id": "GFN36",
+        "product_name": "Golf Femenino Negro",
+        "product_price": 100000,
+        "product_slug": "golf-femenino",
+        "product_category": "Golf"
+    },
+    {
+        "product_id": "GOM37",
+        "product_name": "Golf Masculino",
+        "product_price": 100000,
+        "product_slug": "golf-masculino",
+        "product_category": "Golf"
+    },
+    {
+        "product_id": "HOC38",
+        "product_name": "Hockey",
+        "product_price": 100000,
+        "product_slug": "hockey",
+        "product_category": "Hockey"
+    },
+    {
+        "product_id": "NAT39",
+        "product_name": "Natación",
+        "product_price": 100000,
+        "product_slug": "natacion",
+        "product_category": "Natacion"
+    },
+    {
+        "product_id": "PAT40",
+        "product_name": "Patinaje",
+        "product_price": 100000,
+        "product_slug": "patinaje",
+        "product_category": "Patinaje"
+    },
+    {
+        "product_id": "PES41",
+        "product_name": "Pesas",
+        "product_price": 100000,
+        "product_slug": "pesas",
+        "product_category": "Pesas"
+    },
+    {
+        "product_id": "POR42",
+        "product_name": "Porras Rosado",
+        "product_price": 100000,
+        "product_slug": "porras",
+        "product_category": "Porras"
+    },
+    {
+        "product_id": "PON43",
+        "product_name": "Porras Negro",
+        "product_price": 100000,
+        "product_slug": "porras",
+        "product_category": "Porras"
+    },
+    {
+        "product_id": "TWK44",
+        "product_name": "Taekwondo",
+        "product_price": 100000,
+        "product_slug": "taekwondo",
+        "product_category": "Taekwondo"
+    },
+    {
+        "product_id": "TFR45",
+        "product_name": "Tenis Femenino Rosado",
+        "product_price": 100000,
+        "product_slug": "tenis-femenino",
+        "product_category": "Tenis"
+    },
+    {
+        "product_id": "TFN46",
+        "product_name": "Tenis Femenino Negro ",
+        "product_price": 100000,
+        "product_slug": "tenis-femenino",
+        "product_category": "Tenis"
+    },
+    {
+        "product_id": "TEM47",
+        "product_name": "Tenis Masculino",
+        "product_price": 100000,
+        "product_slug": "tenis-masculino",
+        "product_category": "Tenis"
+    },
+    {
+        "product_id": "VOF48",
+        "product_name": "Voleibol Femenino",
+        "product_price": 100000,
+        "product_slug": "voleibol-femenino",
+        "product_category": "Voleibol"
+    },
+    {
+        "product_id": "VOM49",
+        "product_name": "Voleibol Masculino",
+        "product_price": 100000,
+        "product_slug": "voleibol-masculino",
+        "product_category": "Voleibol"
+    },
+    {
+        "product_id": "MMA50",
+        "product_name": "Miami Marathon",
+        "product_price": 100000,
+        "product_slug": "miami",
+        "product_category": "Maratones"
+    },
+    {
+        "product_id": "SLT51",
+        "product_name": "Salto Triple",
+        "product_price": 100000,
+        "product_slug": "salto-triple",
+        "product_category": "Salto"
+    },
+    {
+        "product_id": "LCS52",
+        "product_name": "llavero -Crossfit",
+        "product_price": 65000,
+        "product_slug": "crossfit",
+        "product_category": "Crossfit"
+    },
+    {
+        "product_id": "GTS53",
+        "product_name": "Gato sentado",
+        "product_price": 65000,
+        "product_slug": "portacollares",
+        "product_category": "Mascotas"
+    },
+    {
+        "product_id": "GRT54",
+        "product_name": "Golden",
+        "product_price": 65000,
+        "product_slug": "portacollares",
+        "product_category": "Mascotas"
+    },
+    {
+        "product_id": "ILP55",
+        "product_name": "I love my pet",
+        "product_price": 65000,
+        "product_slug": "portacollares",
+        "product_category": "Mascotas"
+    },
+    {
+        "product_id": "LAB56",
+        "product_name": "Labrador",
+        "product_price": 65000,
+        "product_slug": "portacollares",
+        "product_category": "Mascotas"
+    },
+    {
+        "product_id": "LSI57",
+        "product_name": "Lobo Siberiano",
+        "product_price": 65000,
+        "product_slug": "portacollares",
+        "product_category": "Mascotas"
+    },
+    {
+        "product_id": "CSP58",
+        "product_name": "Cocker spaniel ",
+        "product_price": 65000,
+        "product_slug": "portacollares",
+        "product_category": "Mascotas"
+    },
+    {
+        "product_id": "GAT59",
+        "product_name": "Gato",
+        "product_price": 65000,
+        "product_slug": "portacollares",
+        "product_category": "Mascotas"
+    },
+    {
+        "product_id": "SCH60",
+        "product_name": "Schnauzer",
+        "product_price": 65000,
+        "product_slug": "portacollares",
+        "product_category": "Mascotas"
+    },
+    {
+        "product_id": "CPG61",
+        "product_name": "Casa-perro-gato",
+        "product_price": 65000,
+        "product_slug": "portacollares",
+        "product_category": "Mascotas"
+    },
+    {
+        "product_id": "CAS62",
+        "product_name": "Casa",
+        "product_price": 65000,
+        "product_slug": "portacollares",
+        "product_category": "Mascotas"
+    }
+]
