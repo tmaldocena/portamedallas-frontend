@@ -21,8 +21,8 @@ function App() {
       <Routes location={location} >
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />}/>
-        <Route element={<DefaultLayout />}>
           
+        <Route element={<DefaultLayout />}>
           <Route path='/' index element={<Home />} />
           <Route path='/tienda' element={<Shop />} />
           <Route path='/item/:id' element={<ViewItem />} />
