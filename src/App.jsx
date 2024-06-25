@@ -11,6 +11,7 @@ import Politics from './pages/Politics';
 import Pedidos from './pages/Pedidos';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
   return (
       <Routes location={location} >
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />}/>
         <Route element={<DefaultLayout />}>
           
           <Route path='/' index element={<Home />} />

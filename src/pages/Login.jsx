@@ -1,7 +1,7 @@
 const Login = () => {
     return (
         <div className="hero min-h-screen font-open">
-        <div className="absolute top-0 z-[-2] h-screen w-screen bg-base-200 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(139, 141, 183, 1),rgba(255,255,255,0))]"></div>
+            <div className="absolute top-0 z-[-2] h-screen w-screen bg-base-200 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(139, 141, 183, 1),rgba(255,255,255,0))]"></div>
             <div className="hero-content flex-col lg:flex-row-reverse animate-fade-in animate-delay-300 animate-duration-slow gap-8">
                 <div className="text-center lg:text-left">
                     <img src="./assets/logo-portamedallas-3.png" width={312}></img>
@@ -12,8 +12,8 @@ const Login = () => {
                 </div>
 
                 <div className="card bg-base-100 border-base-300 border w-full max-w-sm shrink-0 shadow-2xl">
-                <a href="/" className="btn btn-link btn-primary no-underline"><box-icon name='arrow-back'></box-icon>Volver a Portamedallas</a>
-                    
+                    <a href="/" className="btn btn-link btn-primary no-underline"><box-icon name='arrow-back'></box-icon>Volver a Portamedallas</a>
+
                     <form className="card-body">
                         <div className="form-control">
                             <label className="label">
