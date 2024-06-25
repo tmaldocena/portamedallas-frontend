@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@fontsource-variable/open-sans": "^5.0.29",
+    "@midudev/tailwind-animations": "^0.0.7",
     "boxicons": "^2.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

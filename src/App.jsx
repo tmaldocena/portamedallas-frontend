@@ -10,26 +10,30 @@ import Checkout from './pages/Checkout';
 import Politics from './pages/Politics';
 import Pedidos from './pages/Pedidos';
 import Profile from './pages/Profile';
+import Login from './pages/Login';
 
 function App() {
 
   const location = useLocation();
 
   return (
-    <DefaultLayout>
-      <Routes location={location}>
-          <Route path='/' index element={ <Home /> }/>
-          <Route path='/tienda' index element={ <Shop /> }/>
-          <Route path='/item/:id' element={ <ViewItem /> } />
-          <Route path='/contact' element={ <Contact />} />
-          <Route path='/cart' element={ <CheckCart /> } />
-          <Route path='/checkout' element={ <Checkout /> } />
-          <Route path='/politica' element={ <Politics /> } />
-          <Route path='/pedidos' element={ <Pedidos /> } />
-          <Route path='/profile' element={ <Profile /> } />
-          <Route path='*' index element={ <Error404 /> }/>
+      <Routes location={location} >
+        <Route path='/login' element={<Login />} />
+        <Route element={<DefaultLayout />}>
+          
+          <Route path='/' index element={<Home />} />
+          <Route path='/tienda' element={<Shop />} />
+          <Route path='/item/:id' element={<ViewItem />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/cart' element={<CheckCart />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/politica' element={<Politics />} />
+          <Route path='/pedidos' element={<Pedidos />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='*' index element={<Error404 />} />
+
+        </Route>
       </Routes>
-    </DefaultLayout>
   )
 }
 

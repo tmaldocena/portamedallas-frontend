@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const Footer = () => {
 
     const whatsapp = 'https://api.whatsapp.com/send?phone=573206348134&text=%C2%A1Hola!%20Estoy%20en%20la%20tienda%20Portamedallas%20y%20quiero%20pedir%20m%C3%A1s%20informaci%C3%B3n.';
-
+    const instagram = 'https://www.instagram.com/portamedallas/'
 
     return (
         <footer>
@@ -33,8 +33,8 @@ const Footer = () => {
                 <nav>
                     <h6 className="text-primary text-xl mb-2 font-semibold">Síguenos</h6>
                     <div className="flex flew-row gap-4">
-                        <a className="link link-hover"><box-icon name="instagram" type="logo" size="lg"></box-icon></a>
-                        <a className="link link-hover"><box-icon name="facebook" type="logo" size="lg"></box-icon></a>
+                        <a className="link link-hover" href={ instagram } target="_blank"><box-icon name="instagram" type="logo" size="lg"></box-icon></a>
+                        <a className="link link-hover" href='*' target="_blank"><box-icon name="facebook" type="logo" size="lg"></box-icon></a>
                         <a className="link link-hover" href={ whatsapp } target="_blank"><box-icon name="whatsapp" type="logo" size="lg"></box-icon></a>
                     </div>
                 </nav>
