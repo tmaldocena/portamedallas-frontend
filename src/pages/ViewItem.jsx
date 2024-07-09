@@ -9,7 +9,7 @@ import UseCart from '../hooks/useCart';
 
 const ViewItem = () => {
 
-    console.log('HOLAAA');
+    //console.log('HOLAAA');
 
     const { addToCart } = UseCart()
 
@@ -23,7 +23,7 @@ const ViewItem = () => {
 
     const getProduct = async () => {
         try {
-            const res = fetch(`http://localhost:3000/api/products/${id}`)
+            const res = fetch(`https://portamedallas-backend.vercel.app/api/products/${id}`)
 
             if (!res.ok) {
                 console.log('There was an error!');

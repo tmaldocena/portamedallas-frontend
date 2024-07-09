@@ -9,7 +9,7 @@ const ViewImage = ({ item }) => {
 
     const getProduct = async () => {
         try {
-            const res = fetch(`http://localhost:3000/api/products/${item}/slug`)
+            const res = fetch(`https://portamedallas-backend.vercel.app/api/products/${item}/slug`)
 
             if (!res.ok) {
                 console.log('There was an error!');
