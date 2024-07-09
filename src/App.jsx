@@ -12,12 +12,15 @@ import Pedidos from './pages/Pedidos';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import { UserProvider } from './context/user';
 
 function App() {
 
   const location = useLocation();
 
   return (
+    <UserProvider>
+
       <Routes location={location} >
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />}/>
@@ -36,6 +39,7 @@ function App() {
 
         </Route>
       </Routes>
+    </UserProvider>
   )
 }
 

@@ -3,13 +3,27 @@ import { Link } from 'react-router-dom';
 import Autocomplete from './Autocomplete';
 import UseCart from '../hooks/useCart';
 import { useState } from 'react';
+import UseLogin from '../hooks/useLogin';
+import { useEffect } from 'react';
 
 
 const Navbar = () => {
     const { cart, clearCart, getTotal, getCurrency } = UseCart()
+    const { user, logout } = UseLogin()
     const [login, setLogin] = useState(false);
 
     console.log(cart);
+    console.log(user)
+    console.log(login)
+
+    useEffect(() => {
+      if (Object.keys(user).length > 0) {
+        setLogin(true)
+      }else{
+        setLogin(false)
+      }
+    }, [])
+    
 
 
 
@@ -44,7 +58,7 @@ const Navbar = () => {
                                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                             <li><Link to='/profile'>Perfil</Link></li>
                                             <li><Link to='/pedidos'>Mis pedidos</Link></li>
-                                            <li onClick={ () => setLogin(false) }><a>Cerrar sesión</a></li>
+                                            <li onClick={ () => logout() }><a>Cerrar sesión</a></li>
                                         </ul>
                                     </div>
                                 )

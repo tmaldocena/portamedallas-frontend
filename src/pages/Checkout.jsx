@@ -2,16 +2,20 @@ import { useRef } from "react"
 import UseCart from "../hooks/useCart"
 import { useState } from "react"
 import { useEffect } from "react"
+import MercadoPago from "../components/shop/MercadoPago";
+
 
 
 const Checkout = () => {
+    
     const { cart, getTotal, getCurrency } = UseCart()
     const [showAlert, setShowAlert] = useState(false);
-    const [step, setStep] = useState(1);
+    const [step, setStep] = useState(3);
     const [regions, setRegions] = useState([]);
     const [discountAlert, setDiscountAlert] = useState({ type: 'alert-success', text: '' });
 
     const discount = useRef();
+
 
     useEffect(() => {
 
@@ -47,7 +51,7 @@ const Checkout = () => {
         }
 
         console.log(firstData);
-        
+
         setStep(step + 1)
     }
 
@@ -112,7 +116,7 @@ const Checkout = () => {
                         <li className={'step transition-colors ' + (step >= 3 ? 'step-primary font-bold' : '')}>Métodos de Pago</li>
                     </ul>
                     <div className="w-full">
-                        <form className={"grid w-full rounded bg-base-200 text-primary-content p-4 " + (step == 1 ? 'grid' : 'hidden')} onSubmit={ handleStep1 }>
+                        <form className={"grid w-full rounded bg-base-200 text-primary-content p-4 " + (step == 1 ? 'grid' : 'hidden')} onSubmit={handleStep1}>
                             <label className="form-control w-full">
                                 <div className="label">
                                     <span className="label-text">Correo eléctronico</span>
@@ -180,7 +184,10 @@ const Checkout = () => {
                             </div>
                         </div>
                         <div className={"grid w-full rounded bg-base-200 text-primary-content p-4 " + (step == 3 ? 'grid' : 'hidden')}>
-                            <div className="mt-4 w-full flex flex-row justify-between">
+                            <div className="mt-4 w-full flex flex-col justify-between">
+
+                                <MercadoPago />
+                                
                                 <div className="mt-4 w-full flex flex-row justify-between">
                                     <button className="btn btn-outline btn-primary" onClick={() => setStep(step - 1)}>Volver</button>
                                     <button className="btn btn-wide btn-outline btn-primary">Avanzar</button>

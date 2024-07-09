@@ -17,7 +17,7 @@ const Shop = () => {
 
     const fetchingData = async () => {
         try {
-            const res = fetch('http://localhost:3000/api/products')
+            const res = fetch('https://portamedallas-backend.vercel.app/api/products')
 
             if (!res.ok) {
                 console.log('There was an error!');
