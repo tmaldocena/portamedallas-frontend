@@ -13,6 +13,8 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { UserProvider } from './context/user';
+import Ordered from './pages/Ordered';
+import Admin from './pages/Admin';
 
 function App() {
 
@@ -35,6 +37,8 @@ function App() {
           <Route path='/politica' element={<Politics />} />
           <Route path='/pedidos' element={<Pedidos />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/order/success' element={<Ordered />} />
+          <Route path='/admin' element={<Admin />} />
           <Route path='*' index element={<Error404 />} />
 
         </Route>

@@ -3,19 +3,24 @@ import UseCart from "../hooks/useCart"
 import { useState } from "react"
 import { useEffect } from "react"
 import MercadoPago from "../components/shop/MercadoPago";
+import { Link } from "react-router-dom";
+import UseLogin from "../hooks/useLogin";
 
 
 
 const Checkout = () => {
-    
-    const { cart, getTotal, getCurrency } = UseCart()
+
+    const urlParam = new URLSearchParams(window.location.search)
+
+    const { cart, getTotal, getCurrency } = UseCart();
+    const { user } = UseLogin()
     const [showAlert, setShowAlert] = useState(false);
-    const [step, setStep] = useState(3);
+    const [step, setStep] = useState(1);
     const [regions, setRegions] = useState([]);
+    const [form, setForm] = useState({ id: urlParam.get('order'), pedido: JSON.stringify(cart), precio: getTotal() + 12000, user_id: user.user.id })
     const [discountAlert, setDiscountAlert] = useState({ type: 'alert-success', text: '' });
 
     const discount = useRef();
-
 
     useEffect(() => {
 
@@ -45,18 +50,80 @@ const Checkout = () => {
         const dataEntries = event.target.elements;
 
         const firstData = {
+            user_id: user.user.id,
             name: dataEntries.name.value,
             mail: dataEntries.mail.value,
             phone: dataEntries.phone.value
         }
 
-        console.log(firstData);
+        console.log(JSON.stringify(firstData));
+        setForm({ ...form, first: JSON.stringify(firstData) });
 
         setStep(step + 1)
     }
 
+    const handleStep2 = (event) => {
+        event.preventDefault()
+        const dataEntries = event.target.elements;
+        //console.log(dataEntries);
+        const secondData = {
+            region: dataEntries.region.value,
+            ciudad: dataEntries.ciudad.value,
+            direccion: dataEntries.direccion.value,
+            adicional: dataEntries.adicional.value,
+            codigopostal: dataEntries.codigopostal.value
+        }
+        //console.log(secondData)
+        setForm({ ...form, second: JSON.stringify(secondData) })
+
+    }
+
+    //TODO: HACER LLAMADA A LA API PARA GUARDAR LA ORDEN!!!
+    console.log(form);
+
+    const saveOrder = async () => {
+        fetch('http://localhost:3000/api/orden/update',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(form)
+            }).then(res => res.json()).then(res => {
+                const id = res.rows[0][0];
+                location.href = `/order/success?id=${id}`;
+            })
+    }
+
+
     return (
         <section className="px-16 py-24 font-open">
+            <dialog id="qr_nequi" className="modal">
+                <div className="modal-box w-11/12 max-w-5xl">
+                    <h3 className="font-bold text-lg">Pasos para pagar con Nequi</h3>
+                    <div className="flex flex-row gap-12">
+                        <img src="/assets/qr-nequi.png" width={256} />
+                        <div>
+                            <p>A continuación tienes nuestro QR de Nequi para hacer el pago.</p>
+                            <p className="py-4">Debes hacer una transferencia de <strong>{getCurrency(getTotal() + 12000)}</strong></p>
+                            <ul className="list-decimal">
+                                <li>Entra en Nequi y presiona el botón QR. Lo encuentras debajo del número de cel.</li>
+                                <li>Escanea el código QR de Nequi con la cámara de tu cel.</li>
+                                <li>Confirma que esté bien el valor que vas a pagar.</li>
+                                <li>Escribe tu clave y listo.</li>
+                            </ul>
+                            <p className="py-4">No olvides notificarnos que hiciste el pago</p>
+                        </div>
+                    </div>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn">Cerrar</button>
+                        </form>
+                        <button className="btn btn-primary" onClick={() => saveOrder()}>Ya realicé el pago</button>
+                    </div>
+                </div>
+            </dialog>
             <div className="flex flex-row justify-center">
                 <div className="w-1/2">
                     <span className="flex flex-row">
@@ -64,7 +131,11 @@ const Checkout = () => {
                         <h1 className="text-lg font-bold text-primary">Resumen del pedido</h1>
                     </span>
                     <h3 className="my-4 text-xl font-light">Precio de productos: {getCurrency(getTotal())}</h3>
-                    <h5 className="my-2 text-lg font-light">Coste de envío: {getCurrency(12000)}</h5>
+                    {
+                        step >= 2 && (
+                            <h5 className="my-2 text-lg font-light">Costo de envío: {getCurrency(12000)}</h5>
+                        )
+                    }
                     <div className="divider" />
                     <ul className="">
                         {cart.map((prod, index) => {
@@ -110,7 +181,7 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div className="w-1/2">
-                    <ul className="steps steps-vertical lg:steps-horizontal w-full bg-base-200">
+                    <ul className="steps steps-vertical lg:steps-horizontal w-full">
                         <li className={'step transition-colors ' + (step >= 1 ? 'step-primary font-bold' : '')}>Datos Personales</li>
                         <li className={'step transition-colors ' + (step >= 2 ? 'step-primary font-bold' : '')}>Datos de Envío</li>
                         <li className={'step transition-colors ' + (step >= 3 ? 'step-primary font-bold' : '')}>Métodos de Pago</li>
@@ -140,16 +211,16 @@ const Checkout = () => {
                                 <input type="submit" value='Siguiente' className="btn btn-wide btn-outline btn-primary" ></input>
                             </div>
                         </form>
-                        <div className={"grid w-full rounded bg-base-200 text-primary-content p-4 " + (step == 2 ? 'grid' : 'hidden')}>
+                        <form className={"grid w-full rounded bg-base-200 text-primary-content p-4 " + (step == 2 ? 'grid' : 'hidden')} onSubmit={handleStep2}>
                             <label className="form-control w-full">
                                 <div className="label">
                                     <span className="label-text">Región</span>
                                 </div>
-                                <select className="select select-bordered text-primary select-primary">
+                                <select className="select select-bordered text-primary select-primary" name="region">
                                     <option disabled selected>Seleccionar Departmento</option>
                                     {regions.map(region => {
                                         return (
-                                            <option key={region.id} >{region.name}</option>
+                                            <option key={region.id} value={region.name} >{region.name}</option>
                                         )
                                     })}
                                 </select>
@@ -158,39 +229,40 @@ const Checkout = () => {
                                 <div className="label">
                                     <span className="label-text">Ciudad</span>
                                 </div>
-                                <input type="text" placeholder="Bogotá, Medellín, etc." className="input input-bordered w-full" />
+                                <input type="text" placeholder="Bogotá, Medellín, etc." name="ciudad" className="input input-bordered w-full text-primary" />
                             </label>
                             <label className="form-control w-full">
                                 <div className="label">
                                     <span className="label-text">Dirección</span>
                                 </div>
-                                <input type="text" placeholder="Calles, número, etc." className="input input-bordered w-full" />
+                                <input type="text" placeholder="Calles, número, etc." name="direccion" className="input input-bordered w-full text-primary" />
                             </label>
                             <label className="form-control w-full">
                                 <div className="label">
                                     <span className="label-text">Detalles adicionales</span>
                                 </div>
-                                <input type="text" placeholder="Número de apartamento, indicaciones adicionales, etc." className="input input-bordered w-full" />
+                                <input type="text" placeholder="Número de apartamento, indicaciones adicionales, etc." name="adicional" className="input input-bordered w-full text-primary" />
                             </label>
                             <label className="form-control w-full">
                                 <div className="label">
                                     <span className="label-text">Código Postal</span>
                                 </div>
-                                <input type="number" placeholder="0000" className="input input-bordered w-full max-w-xs" />
+                                <input type="number" placeholder="0000" name="codigopostal" className="input input-bordered w-full max-w-xs text-primary" />
                             </label>
                             <div className="mt-4 w-full flex flex-row justify-between">
                                 <button className="btn btn-outline btn-primary" onClick={() => setStep(step - 1)}>Volver</button>
-                                <button className="btn btn-wide btn-outline btn-primary" onClick={() => setStep(step + 1)}>Avanzar</button>
+                                <input type="submit" value='Siguiente' className="btn btn-wide btn-outline btn-primary" onClick={() => setStep(step + 1)}></input>
                             </div>
-                        </div>
+                        </form>
                         <div className={"grid w-full rounded bg-base-200 text-primary-content p-4 " + (step == 3 ? 'grid' : 'hidden')}>
                             <div className="mt-4 w-full flex flex-col justify-between">
-
+                                <span className="text-primary mb-4">A continuación tienes nuestros métodos de pago disponibles:</span>
+                                <button className='btn btn-primary' onClick={() => document.getElementById('qr_nequi').showModal()}>Pagar con QR Nequi</button>
+                                <div className="divider text-primary">o</div>
                                 <MercadoPago />
-                                
+
                                 <div className="mt-4 w-full flex flex-row justify-between">
                                     <button className="btn btn-outline btn-primary" onClick={() => setStep(step - 1)}>Volver</button>
-                                    <button className="btn btn-wide btn-outline btn-primary">Avanzar</button>
                                 </div>
                             </div>
                         </div>

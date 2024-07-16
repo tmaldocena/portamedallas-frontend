@@ -7,12 +7,12 @@ import { useEffect } from "react";
 const Register = () => {
 
     const { register } = UseLogin()
-
+/* 
     useEffect(() => {
 
         document.getElementById('modalRegister').showModal()
 
-    }, []);
+    }, []); */
 
     const handleRegister = async (event) => {
         event.preventDefault();

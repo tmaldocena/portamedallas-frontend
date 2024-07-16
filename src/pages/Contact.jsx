@@ -7,24 +7,43 @@ const Contact = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const dataEntries = event.target.elements;
-    const data = {
-      name: dataEntries.name.value,
-      mail: dataEntries.mail.value,
-      phone: dataEntries.phone.value,
-      description: dataEntries.description.value
-    };
-    console.log(data);
+    const form = new FormData();
+    
+      form.append('name', dataEntries.name.value);
+      form.append('mail', dataEntries.mail.value);
+      form.append('phone', dataEntries.phone.value);
+      form.append('description', dataEntries.description.value);
+    
+    fetch('https://script.google.com/macros/s/AKfycbxtRVc3uhM31bU51X_bxdupkpaW3cryV02TEbaSYzRGOT8raA8Q8R2D6c4o8C6G8hM/exec', {
+      method: 'POST',
+      body: form
+    }).then( data => {
+
+      setTimeout(() => {
+        location.href = '/'
+      }, 3000);
+
+      toast.success('Enviamos tu consulta! Pronto tendrás una respuesta');
+    }).catch( err => {
+
+      setTimeout(() => {
+        location.href = '/'
+      }, 3000);
+
+      toast.success('Enviamos tu consulta! Pronto tendrás una respuesta');
+
+    } )
   };
 
   const copyMail = () => {
-    const mail = 'alejandrarodriguez@eltrolley.com';
+    const mail = 'samuelcastro@eltrolley.com';
     navigator.clipboard.writeText(mail);
     toast('Mail copiado al portapapeles')
   }
 
   return (
     <section className={"w-full lg:px-16 px-8 py-32 align-middle place-content-evenly text-primary font-open"} >
-      <Toaster />
+      <Toaster richColors/>
       <div className="flex lg:flex-row flex-col justify-evenly items-center">
         <div className="lg:w-2/5 w-full">
           <h1 className="text-3xl font-bold my-4 lg:text-left text-center">Contacto</h1>

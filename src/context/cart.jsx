@@ -50,7 +50,7 @@ export function CartProvider ({ children }) {
     }
 
     const getCurrency = (price) => {
-        return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'COP', currencyDisplay: 'narrowSymbol' }).format(price);
+        return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'COP', currencyDisplay: 'narrowSymbol' }).format(price);
     }
 
     return (
