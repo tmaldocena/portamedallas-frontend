@@ -64,14 +64,15 @@ const Login = () => {
     };
 
     return (
+        
         <div className="hero min-h-screen font-open">
             <Toaster position="top-center" richColors />
             <div className="absolute top-0 z-[-2] h-screen w-screen bg-base-200 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(139, 141, 183, 1),rgba(255,255,255,0))]"></div>
             <div className="hero-content flex-col lg:flex-row-reverse animate-fade-in animate-delay-300 animate-duration-slow gap-8">
                 <div className="text-center lg:text-left">
-                    <img src="./assets/logo-portamedallas-3.png" width={312}></img>
-                    <h1 className="text-5xl text-primary font-bold">Iniciar sesión en Portamedallas</h1>
-                    <p className="py-6">
+                    <img src="./assets/logo-portamedallas-3.png" width={312} className="lg:w-[312px] w-full"></img>
+                    <h1 className="lg:text-5xl text-2xl text-primary font-bold">Iniciar sesión en Portamedallas</h1>
+                    <p className="lg:py-6 py-2 text-base sm:text-sm">
                         Inicia sesión ahora mismo para poder realizar tus compras, ver el estado de tus pedidos y navegar por toda la tienda.
                     </p>
                 </div>

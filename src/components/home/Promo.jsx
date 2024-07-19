@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const Promo = () => {
     return (
         <section className="bg-no-repeat bg-center bg-cover bg-promo">
-        <div className="hero min-h-[60vh] transition-all bg-black/30">
+        <div className="hero lg:min-h-[60vh] min-h-[40vh] transition-all bg-black/30">
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
                     <box-icon name='medal' type='solid' color='#fce7f3' ></box-icon>

@@ -7,25 +7,34 @@ const Filters = ({ setFilters }) => {
     const [category, setCategory] = useState('all');
 
     const categories = [
-        'Deportes Grupales',
-        'Deportes Individuales',
-        'Otros',
+        'Personalizados',
         'Running',
-        'Bike',
-        'Natación',
-        'Gymnastics',
-        'Tenis',
-        'Mascotas/Portacollares',
+        'Portanúmeros',
+        'WWM',
+        'Ironman',
         'Triatlón',
-        'a',
-        'b'
-    ]
-
-    const colors = [
-        { hex: '#974', name: 'Azul' },
-        { hex: '#F09', name: 'Naranja' },
-        { hex: '#121', name: 'Negro' },
-        { hex: '#EE2', name: 'Rojo' }
+        'Duatlón',
+        'BMX',
+        'Mountain Bike',
+        'Baloncesto',
+        'Baseball',
+        'Softball',
+        'Clavado',
+        'Equitación',
+        'Futbol',
+        'Gimnast',
+        'Golf',
+        'Natación',
+        'Patinaje',
+        'Pesas',
+        'Porras',
+        'Taekwondo',
+        'Tenis',
+        'Mascotas',
+        'Crossfit',
+        'Salto',
+        'Maratones',
+        'Voleibol'
     ]
 
     const handleChange = (e) => {
@@ -92,22 +101,7 @@ const Filters = ({ setFilters }) => {
 
                     <div className="divider"></div>
 
-                    <div className="collapse">
-                        <input type="checkbox" />
-                        <div className="collapse-title text-xl font-medium flex flex-row gap-2 items-center">
-                            <h6>Colores</h6>
-                            <box-icon name='chevron-down'></box-icon>
-                        </div>
-                        <div className="collapse-content">
-                            <div className="flex flex-col items-start">
-                                {colors.map((color, key) => {
-                                    return (
-                                        <input type="checkbox" key={key} aria-label={color.name} defaultChecked className='btn btn-sm btn-link no-underline hover:no-underline' />
-                                    )
-                                })}
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div className="lg:inline hidden w-1/5">
@@ -154,22 +148,6 @@ const Filters = ({ setFilters }) => {
 
                 <div className="divider"></div>
 
-                <div className="collapse">
-                    <input type="checkbox" />
-                    <div className="collapse-title text-xl font-medium flex flex-row gap-2 items-center">
-                        <h6>Colores</h6>
-                        <box-icon name='chevron-down'></box-icon>
-                    </div>
-                    <div className="collapse-content">
-                        <div className="flex flex-col gap-2 items-start">
-                            {colors.map((color, key) => {
-                                return (
-                                    <input type="checkbox" key={key} aria-label={color.name} defaultChecked className='btn btn-sm btn-link no-underline hover:no-underline' />
-                                )
-                            })}
-                        </div>
-                    </div>
-                </div>
             </div>
         </>
     )

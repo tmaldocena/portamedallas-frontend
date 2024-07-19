@@ -6,13 +6,14 @@ import { useEffect } from "react";
 
 const Register = () => {
 
-    const { register } = UseLogin()
-/* 
+    const { register, user } = UseLogin()
+
     useEffect(() => {
 
-        document.getElementById('modalRegister').showModal()
-
-    }, []); */
+        if(Object.keys(user).length > 0){
+            location.href = '/profile';
+        }
+    }, []);
 
     const handleRegister = async (event) => {
         event.preventDefault();
@@ -40,9 +41,9 @@ const Register = () => {
             <Toaster position="top-center" richColors />
             <div className="hero-content flex-col lg:flex-row animate-fade-in animate-delay-300 animate-duration-slow gap-8">
                 <div className="text-center lg:text-left">
-                    <img src="./assets/logo-portamedallas-3.png" width={312}></img>
-                    <h1 className="text-4xl text-primary font-bold">Registrarse en Portamedallas</h1>
-                    <p className="py-6">
+                    <img src="./assets/logo-portamedallas-3.png" width={312} className="lg:w-[312px] w-full"></img>
+                    <h1 className="lg:text-5xl text-2xl text-primary font-bold">Registrarse en Portamedallas</h1>
+                    <p className="lg:py-6 py-2">
                         Regístrate ahora mismo en Portamedallas, para poder realizar tus compras y poder seguir tus pedidos.
                     </p>
                 </div>

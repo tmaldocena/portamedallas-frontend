@@ -3,12 +3,14 @@ import UseCart from "../hooks/useCart"
 import { useState } from "react"
 import { useEffect } from "react"
 import MercadoPago from "../components/shop/MercadoPago";
-import { Link } from "react-router-dom";
 import UseLogin from "../hooks/useLogin";
 
 
 
 const Checkout = () => {
+
+    const whatsapp = 'https://api.whatsapp.com/send?phone=573206348134&text=%C2%A1Hola!%20Realicé%20una%20compra%20en%20la%20tienda%20Portamedallas%20y%20quiero%20notificar%20el%20pago%20';
+
 
     const urlParam = new URLSearchParams(window.location.search)
 
@@ -113,6 +115,7 @@ const Checkout = () => {
                                 <li>Escribe tu clave y listo.</li>
                             </ul>
                             <p className="py-4">No olvides notificarnos que hiciste el pago</p>
+                            <a className="link link-hover" href={ whatsapp } target="_blank"><box-icon name="whatsapp" type="logo" size="lg"></box-icon></a>
                         </div>
                     </div>
                     <div className="modal-action">
@@ -259,7 +262,7 @@ const Checkout = () => {
                                 <span className="text-primary mb-4">A continuación tienes nuestros métodos de pago disponibles:</span>
                                 <button className='btn btn-primary' onClick={() => document.getElementById('qr_nequi').showModal()}>Pagar con QR Nequi</button>
                                 <div className="divider text-primary">o</div>
-                                <MercadoPago />
+                                <MercadoPago form={form}/>
 
                                 <div className="mt-4 w-full flex flex-row justify-between">
                                     <button className="btn btn-outline btn-primary" onClick={() => setStep(step - 1)}>Volver</button>

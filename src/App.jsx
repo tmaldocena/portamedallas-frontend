@@ -20,13 +20,14 @@ function App() {
 
   const location = useLocation();
 
+
   return (
     <UserProvider>
 
       <Routes location={location} >
         <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />}/>
-          
+        <Route path='/register' element={<Register />} />
+
         <Route element={<DefaultLayout />}>
           <Route path='/' index element={<Home />} />
           <Route path='/tienda' element={<Shop />} />
@@ -35,10 +36,17 @@ function App() {
           <Route path='/cart' element={<CheckCart />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/politica' element={<Politics />} />
-          <Route path='/pedidos' element={<Pedidos />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/order/success' element={<Ordered />} />
+          {
+            localStorage.getItem('user') && (
+              <>
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/pedidos' element={<Pedidos />} />
+              </>
+            )
+          }
           <Route path='/admin' element={<Admin />} />
+
+          <Route path='/order/success' element={<Ordered />} />
           <Route path='*' index element={<Error404 />} />
 
         </Route>

@@ -3,6 +3,33 @@ import { useState } from "react"
 import { Link } from "react-router-dom";
 import useCart from "../hooks/useCart.js";
 
+const getCollar = (name) => {
+    switch (name) {
+        case 'Casa':
+            return `./assets/products/portacollares/casa/casa.jpg`;
+        case "Casa-perro-gato":
+            return `./assets/products/portacollares/casa-perro-gato/casa-perro-gato.jpg`;
+        case 'Cocker spaniel ':
+            return `./assets/products/portacollares/cocker-spaniel/cocker-spaniel.jpg`;
+        case 'Gato':
+            return `./assets/products/portacollares/gato/gato.jpg`;
+        case 'Gato sentado':
+            return `./assets/products/portacollares/gato-sentado/gato-sentado.jpg`;
+        case 'Golden':
+            return `./assets/products/portacollares/golden/golden.jpg`;
+        case 'I love my pet':
+            return `./assets/products/portacollares/ilovemypet/ilovemypet.jpg`;
+        case 'Labrador':
+            return `./assets/products/portacollares/labrador/labrador.jpg`;
+        case 'Lobo Siberiano':
+            return `./assets/products/portacollares/siberiano/siberiano.jpg`;
+        case 'Schnauzer':
+            return `./assets/products/portacollares/schnauzer/schnauzer.jpg`;
+        default:
+            break;
+    }
+}
+
 const Card = ({ item }) => {
     const { addToCart, cart } = useCart()
 
@@ -37,7 +64,7 @@ const Card = ({ item }) => {
                 )
             }
             <Link to={'/item/' + item.product_id}>
-                <figure><img src={`./assets/products/${item.product_slug}/${item.product_slug}.jpg`} alt="Portamedallas" /></figure>
+                <figure><img src={(item.product_category === 'Mascotas' ? getCollar(item.product_name) : `./assets/products/${item.product_slug}/${item.product_slug}.jpg`)} alt="Portamedallas" /></figure>
             </Link>
             <div className="card-body">
                 <h2 className="card-title text-base">

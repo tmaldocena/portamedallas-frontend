@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import Filters from "../components/shop/Filters"
 import Items from "../components/shop/Items"
+import UseLogin from "../hooks/useLogin";
 
 
 const Shop = () => {
 
+    const { user } = UseLogin()
     const [searchItem, setSearchItem] = useState('')
     const [filteredItems, setFilteredItems] = useState([])
+    const [products, setProducts] = useState([])
 
     const [filters, setFilters] = useState({
         category: 'all',
         maxPrice: 150001,
-        colors: ['blue', 'orange', 'black', 'pink'],
-        orderBy: 'name-asc'
+        orderBy: 'asc'
     });
 
     const fetchingData = async () => {
@@ -26,7 +28,8 @@ const Shop = () => {
             const json = await (await res).json()
 
             console.log(json)
-            setFilteredItems(json);
+            setProducts(json);
+            setFilteredItems(json)
         } catch (err) {
             console.log(err);
         }
@@ -34,71 +37,54 @@ const Shop = () => {
 
     useEffect(() => {
         fetchingData()
+        //setFilteredItems(products)
+        if(user){
+            document.getElementById('store_modal').showModal()
+        }
+
     }, []);
 
     const handleInputChange = (e) => {
-        const searchTerm = e.target.value;
-        setSearchItem(searchTerm)
-        console.log(searchTerm);
-        const filtered = filteredItems.filter((user) =>
-            user.product_name.toLowerCase().includes(searchTerm.toLowerCase())
+        setSearchItem(e.target.value)
+        const filtered = products.filter((item) =>
+            item.product_name.toLowerCase().includes(searchItem.toLowerCase())
         );
         setFilteredItems(filtered);
     }
 
-
     const filterProducts = () => {
-        return filteredItems.filter((prod) =>
-            prod.product_price <= filters.maxPrice
-        )
+        return filteredItems.filter((prod) => Number(prod.product_price) < Number(filters.maxPrice) )
     }
 
-    let fiProd = filterProducts()
+    const sortBy = () => {
+        if( filters.orderBy === 'asc' ) return products.sort((a,b) => (a.product_name > b.product_name) ? 1 : ((b.product_name > a.product_name) ? -1 : 0))
+        if( filters.orderBy === 'desc' ) return products.sort((a,b) => (a.product_name < b.product_name) ? 1 : ((b.product_name < a.product_name) ? -1 : 0))
 
-    const sortByName = (type) => {
-        if (type === 'asc') {
-            fiProd.sort((a, b) => {
-                const nameA = a.product_name.toUpperCase(); // ignore upper and lowercase
-                const nameB = b.product_name.toUpperCase(); // ignore upper and lowercase
-                if (nameA < nameB) {
-                    return -1;
-                }
-                if (nameA > nameB) {
-                    return 1;
-                }
-
-                // names must be equal
-                return 0;
-            });
-        } else {
-            if (type === 'desc') {
-                fiProd.sort((a, b) => {
-                    const nameA = a.product_name.toUpperCase(); // ignore upper and lowercase
-                    const nameB = b.product_name.toUpperCase(); // ignore upper and lowercase
-                    if (nameA > nameB) {
-                        return -1;
-                    }
-                    if (nameA < nameB) {
-                        return 1;
-                    }
-
-                    // names must be equal
-                    return 0;
-                });
-            }
-        }
+        //setFilteredItems(ordered);
     }
 
-
-
-
+    let fiProd = []
+    
     fiProd = filteredItems.filter((prod) => prod.product_category === filters.category || filters.category === 'all')
 
-
+    fiProd = filterProducts()
+    fiProd = sortBy()
     console.log(fiProd);
 
     return (
         <section className={"w-full text-primary font-open"} >
+            <dialog id="store_modal" className="modal">
+                <div className="modal-box">
+                    <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <box-icon name='medal' color="#0D0E26"></box-icon>
+                    <h3 className="font-bold text-xl">Bienvenido a la tienda de Portamedallas</h3>
+                    <p className="py-4">Para realizar las compras, no olvides <a href="/register" className="font-bold text-primary">crear una cuenta</a> o <a href="/login" className="font-bold text-primary">iniciar sesión</a>  con tu usuario.</p>
+                    <p className="pt-4">Estamos atentos por si tienes alguna consulta, no olvides de contactarnos por nuestras redes sociales!</p>
+                </div>
+            </dialog>
             <div className="w-full bg-accent py-8">
                 <h2 className="text-center text-3xl">Portamedallas</h2>
             </div>

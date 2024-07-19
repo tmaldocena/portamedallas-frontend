@@ -10,10 +10,11 @@ const CheckCart = () => {
     const { cart, getTotal, removeCart, getCurrency } = UseCart()
 
     const [loading, setLoading] = useState(false)
-    const [order, setOrder] = useState( localStorage.getItem('order_number') );
+    const [order, setOrder] = useState( localStorage.getItem('order_number') || "" );
 
     const createOrder = async () => {
-        console.log(order)
+        //console.log(order)
+
          try {
             setLoading(true);
             fetch('http://localhost:3000/api/orden/create', 
@@ -23,11 +24,16 @@ const CheckCart = () => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ id: order })
-                }).then((res) => res.text()).then(res => {
+                }).then(res => res.text()).then(res => {
                     console.log(res);
-                    localStorage.setItem('order_number', res);
-                    location.href = `/checkout?order=${res}`;
+                    localStorage.setItem('orden_number', res);
+                    location.href = `/checkout?order=${res}`
                 })
+                /* .then((res) => res.text()).then(res => {
+                    console.log(res);
+                    //localStorage.setItem('order_number', res);
+                    location.href = `/checkout?order=${res}`; 
+                })*/
                 //console.log(order);
         } catch {
             setLoading(false)

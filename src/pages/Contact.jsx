@@ -14,7 +14,7 @@ const Contact = () => {
       form.append('phone', dataEntries.phone.value);
       form.append('description', dataEntries.description.value);
     
-    fetch('https://script.google.com/macros/s/AKfycbxtRVc3uhM31bU51X_bxdupkpaW3cryV02TEbaSYzRGOT8raA8Q8R2D6c4o8C6G8hM/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzsfWz_HLjyLtYpgVtn5hqXfCwfGKeQYIrFbAenNQRCYI37m3oVXFpp7bdgUYAd8W4/exec', {
       method: 'POST',
       body: form
     }).then( data => {

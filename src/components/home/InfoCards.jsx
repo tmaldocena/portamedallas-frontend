@@ -1,7 +1,7 @@
 
 const InfoCards = () => {
     return (
-        <section className="py-8 font-open px-16">
+        <section className="py-8 font-open lg:px-16 px-8">
             <h2 className="text-center text-2xl font-bold">¿Cómo los hacemos?</h2>
             <div className="grid lg:grid-rows-1 justify-center items-center gap-4">
                 <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all ease-in">

@@ -1,16 +1,19 @@
+/* eslint-disable react/prop-types */
+
+/* eslint-disable no-unused-vars */
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import { useEffect } from "react";
 import { useState } from "react";
 import UseCart from "../../hooks/useCart";
 
-const MercadoPago = () => {
+const MercadoPago = ({ form }) => {
 
     const { getTotal } = UseCart();
 
-    const [preferenceId, setPreferenceId] = useState('')
-    //*initMercadoPago('TEST-4ea7b5e8-ac82-4cfd-8d09-9b7d033ed394');
-    /* initMercadoPago('APP_USR-47f58598-3bcf-4d7c-a334-bbfeac70c90f'); */
-    initMercadoPago('APP_USR-1f4b7012-507a-4c5a-8663-be438b26ca82'); 
+    const [preferenceId, setPreferenceId] = useState('');
+    const [idOrden, setIdOrden] = useState('')
+
+    initMercadoPago('APP_USR-69e7ea88-f791-4587-8e96-a62af282dfe3'); 
 
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -21,14 +24,29 @@ const MercadoPago = () => {
 
     }, [])
 
+    const saveOrder = async () => {
+        fetch('http://localhost:3000/api/orden/update',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(form)
+            }).then(res => res.json()).then(res => {
+                const id = res.rows[0][0];
+                setIdOrden(id);
+                //location.href = `/order/success?id=${id}`;
+            })
+    }
 
     const createID = async () => {
         const body = {
             title: 'Pedido en Portamedallas',
             quantity: 1,
-            price: (getTotal() + 12000)
+            price: (getTotal() + 12000),
+            id: idOrden
         }
-        await fetch('http://localhost:3000/process_payment', {
+        await fetch(`http://localhost:3000/process_payment`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -39,39 +57,14 @@ const MercadoPago = () => {
             
     }
 
-/* 
-    const createPreference = async () => {
-
-        const body = {
-            title: 'Prueba',
-            quantity: 1,
-            price: (getTotal() + 12000)
-        }
-
-        try {
-            const response = await fetch('http://localhost:3000/process_payment', {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(body)
-            });
-
-            //const { id } = response.data;
-            console.log(response);
-            //setPreferenceId(id);
-            //return id;
-        } catch (error) {
-            console.log('error!', error);
-        }
-    } */
-
     return (
+        <div onClick={ () => saveOrder() }>
         <Wallet
             initialization={{ preferenceId: preferenceId }}
             customization={{ texts: { actions: 'buy', valueProp: 'security_details' } }} 
             locale="es"
         />
+        </div>
     )
 }
 

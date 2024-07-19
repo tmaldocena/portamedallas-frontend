@@ -24,8 +24,8 @@ const About = () => {
             <InfoCards />
             <h2 className="pt-16 font-open font-bold text-center text-2xl text-primary">Nuestro empaque</h2>
             <div className="flex lg:flex-row flex-col justify-center items-center gap-12 mt-8">
-                <img src="./assets/empaque.png" alt="empaque del portamedallas" className="rounded-xl shadow-2xl transition-all hover:scale-105 lg:w-[512px] w-64"/>
-                <img src="./assets/impreso.jpg" alt="impreso del portamedallas" className="rounded-xl shadow-2xl transition-all hover:scale-105 lg:w-[512px] w-64"/>
+                <img src="./assets/empaque.png" alt="empaque del portamedallas" className="rounded-xl shadow-2xl transition-all hover:scale-105 lg:w-[512px] w-72"/>
+                <img src="./assets/impreso.jpg" alt="impreso del portamedallas" className="rounded-xl shadow-2xl transition-all hover:scale-105 lg:w-[512px] w-72"/>
             </div>
         </section>
     )
