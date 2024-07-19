@@ -36,7 +36,7 @@ const Contact = () => {
   };
 
   const copyMail = () => {
-    const mail = 'samuelcastro@eltrolley.com';
+    const mail = 'info@portamedallas.com';
     navigator.clipboard.writeText(mail);
     toast('Mail copiado al portapapeles')
   }
@@ -49,7 +49,7 @@ const Contact = () => {
           <h1 className="text-3xl font-bold my-4 lg:text-left text-center">Contacto</h1>
           <p className="my-4 lg:text-left text-center">¿Tienes alguna propuesta institucional? ¿Algúna duda con respecto a compras? ¿Algún comentario o sugerencia? Estamos disponibles para escucharle atentamente.</p>
           <ul className="my-4 flex flex-col lg:items-start items-center">
-            <li className="flex flex-row align-middle gap-4 my-2 font-semibold tooltip tooltip-primary cursor-pointer" data-tip='Copiar correo' onClick={() => copyMail()}><box-icon name="envelope" color="#CE1126" />samuelcastro@eltrolley.com</li>
+            <li className="flex flex-row align-middle gap-4 my-2 font-semibold tooltip tooltip-primary cursor-pointer" data-tip='Copiar correo' onClick={() => copyMail()}><box-icon name="envelope" color="#CE1126" />info@portamedallas.com</li>
             <li className="flex flex-row align-middle gap-4 my-2 font-semibold tooltip tooltip-primary" data-tip='Ir a whatsapp'><box-icon name="whatsapp" type="logo" color="#CE1126" /><a href={whatsapp} target="_blank">(+57) 320-6348134</a></li>
             <li className="flex flex-row align-middle gap-4 my-2 font-semibold"><box-icon name="world" color="#CE1126" />Bogotá, Colombia</li>
             <li className="flex flex-row align-middle gap-4"><box-icon name="" color="#CE1126" />Calle 20 #28-52 Centro Empresarial Hayuelos Oficina 3-36</li>

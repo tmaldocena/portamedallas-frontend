@@ -12,9 +12,11 @@ const Home = () => {
 
     let first = localStorage.getItem('firstTime') || 0;
 
+    if(first === true){ localStorage.setItem('firstTime', 0) }
+
     if (first <= 5) {
       document.getElementById('promo_modal').showModal()
-      localStorage.setItem('firstTime', first++);
+      localStorage.setItem('firstTime', ++first);
     }
 
   }, []);

@@ -27,14 +27,12 @@ const Footer = () => {
                     <a className="link link-hover">Institucional</a>
                     <br />
                     <span className="text-semibold">Bogotá, Colombia</span>
-                    <span className="text-semibold">(+57) 320-6348134</span>
-                    <span className="text-semibold">samuelcastro@eltrolley.com</span>
+                    <span className="text-semibold">info@portamedallas.com</span>
                 </nav>
                 <nav>
                     <h6 className="text-primary text-xl mb-2 font-semibold">Síguenos</h6>
                     <div className="flex flew-row gap-4">
                         <a className="link link-hover" href={ instagram } target="_blank"><box-icon name="instagram" type="logo" size="lg"></box-icon></a>
-                        <a className="link link-hover" href='*' target="_blank"><box-icon name="facebook" type="logo" size="lg"></box-icon></a>
                         <a className="link link-hover" href={ whatsapp } target="_blank"><box-icon name="whatsapp" type="logo" size="lg"></box-icon></a>
                     </div>
                 </nav>
