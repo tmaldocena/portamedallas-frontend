@@ -1,19 +1,20 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { categories } from "../../utils/categories";
 
 const Filters = ({ setFilters }) => {
 
     const [range, setRange] = useState(150000);
     const [category, setCategory] = useState('all');
 
-    const categories = [
+/*     const categories = [
         'Personalizados',
         'Running',
-        'Portanúmeros',
+        'Portanumeros',
         'WWM',
         'Ironman',
-        'Triatlón',
-        'Duatlón',
+        'Triatlon',
+        'Duatlon',
         'BMX',
         'Mountain Bike',
         'Baloncesto',
@@ -35,7 +36,7 @@ const Filters = ({ setFilters }) => {
         'Salto',
         'Maratones',
         'Voleibol'
-    ]
+    ] */
 
     const handleChange = (e) => {
         setRange(e.target.value);
@@ -49,7 +50,7 @@ const Filters = ({ setFilters }) => {
         setCategory(e.target.value);
         setFilters(prevState => ({
             ...prevState,
-            category: category
+            category: e.target.value
         }))
     }
 

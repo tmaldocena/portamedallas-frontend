@@ -9,14 +9,14 @@ const Items = ({ products }) => {
 
 
     return (
-        <div className="lg:w-4/5 w-full justify-center lg:px-8 px-4 flex flex-wrap items-start lg:gap-4 gap-8">
-                { products.map((prod,key) => {
+            <div className="lg:w-4/5 w-full flex flex-wrap items-start justify-center lg:gap-4 gap-8">
+                {products.map((prod, key) => {
                     return (
                         <Card item={prod} key={key} />
 
                     )
                 })}
-        </div>
+            </div>
     )
 }
 

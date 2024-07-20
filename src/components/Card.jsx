@@ -31,7 +31,7 @@ const getCollar = (name) => {
 }
 
 const Card = ({ item }) => {
-    const { addToCart, cart } = useCart()
+    const { addToCart, cart, getCurrency } = useCart()
 
     const [amount, setAmount] = useState(1);
     const [showAlert, setShowAlert] = useState(false);
@@ -70,7 +70,7 @@ const Card = ({ item }) => {
                 <h2 className="card-title text-base">
                     {item.product_name}
                 </h2>
-                <p>${item.product_price}</p>
+                <p>{getCurrency(item.product_price)}</p>
                 <div className="card-actions justify-between items-center">
                     <div>
                         <button className="btn btn-sm btn-square" onClick={decrementCounter}>-</button>

@@ -6,13 +6,15 @@ import UseLogin from "../hooks/useLogin";
 
 const Shop = () => {
 
+    const url = new URLSearchParams(window.location.search)
+    console.log(url.get('cat'));
     const { user } = UseLogin()
     const [searchItem, setSearchItem] = useState('')
-    const [filteredItems, setFilteredItems] = useState([])
     const [products, setProducts] = useState([])
+    const [filteredItems, setFilteredItems] = useState([])
 
     const [filters, setFilters] = useState({
-        category: 'all',
+        category: url.get('cat') || 'all',
         maxPrice: 150001,
         orderBy: 'asc'
     });
@@ -44,11 +46,19 @@ const Shop = () => {
 
     }, []);
 
+    useEffect(() => {
+      console.log(filters)
+    }, [filters])
+    
+
     const handleInputChange = (e) => {
+        setFilteredItems(products);
         setSearchItem(e.target.value)
+        //console.log(searchItem);
         const filtered = products.filter((item) =>
-            item.product_name.toLowerCase().includes(searchItem.toLowerCase())
+            item.product_name.toLowerCase().includes(e.target.value.toLowerCase())
         );
+        console.log(filtered);
         setFilteredItems(filtered);
     }
 
@@ -57,22 +67,28 @@ const Shop = () => {
     }
 
     const sortBy = () => {
-        if( filters.orderBy === 'asc' ) return products.sort((a,b) => (a.product_name > b.product_name) ? 1 : ((b.product_name > a.product_name) ? -1 : 0))
-        if( filters.orderBy === 'desc' ) return products.sort((a,b) => (a.product_name < b.product_name) ? 1 : ((b.product_name < a.product_name) ? -1 : 0))
-
+        if( filters.orderBy === 'asc' ) return filteredItems.sort((a,b) => (a.product_name > b.product_name) ? 1 : ((b.product_name > a.product_name) ? -1 : 0))
+        if( filters.orderBy === 'desc' ) return filteredItems.sort((a,b) => (a.product_name < b.product_name) ? 1 : ((b.product_name < a.product_name) ? -1 : 0))
+        if( filters.orderBy === 'higher' ) return filteredItems.sort((a,b) => (Number(a.product_price) < Number(b.product_price)) ? 1 : ((Number(b.product_price) < Number(a.product_price)) ? -1 : 0))
+        if( filters.orderBy === 'lower' ) return filteredItems.sort((a,b) => (Number(a.product_price) > Number(b.product_price)) ? 1 : ((Number(b.product_price) > Number(a.product_price)) ? -1 : 0))
         //setFilteredItems(ordered);
     }
 
-    let fiProd = []
+    const categoryFilter = () =>{
+        return filteredItems.filter((prod) => prod.product_category === filters.category || filters.category === 'all')
+    }
+
+    let fiProd = [];
     
-    fiProd = filteredItems.filter((prod) => prod.product_category === filters.category || filters.category === 'all')
+    //fiProd = filteredItems.filter((prod) => prod.product_category === filters.category || filters.category === 'all')
 
     fiProd = filterProducts()
     fiProd = sortBy()
-    console.log(fiProd);
+    fiProd = categoryFilter()
+    //console.log(fiProd);
 
     return (
-        <section className={"w-full text-primary font-open"} >
+        <section className={"w-full text-primary font-open animate animate-fade-in"} >
             <dialog id="store_modal" className="modal">
                 <div className="modal-box">
                     <form method="dialog">
@@ -101,8 +117,8 @@ const Shop = () => {
                             <box-icon name='chevron-down'></box-icon>
                         </div>
                         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <li className="btn btn-ghost">Precio más bajo</li>
-                            <li className="btn btn-ghost">Precio más alto</li>
+                            <li className="btn btn-ghost" onClick={() => setFilters({ ...filters, orderBy: 'lower' })}>Precio más bajo</li>
+                            <li className="btn btn-ghost" onClick={() => setFilters({ ...filters, orderBy: 'higher' })}>Precio más alto</li>
                             <li className="btn btn-ghost" onClick={() => setFilters({ ...filters, orderBy: 'asc' })}>Por nombre (A-Z)</li>
                             <li className="btn btn-ghost" onClick={() => setFilters({ ...filters, orderBy: 'desc' })}>Por nombre (Z-A)</li>
                         </ul>

@@ -42,7 +42,7 @@ const Contact = () => {
   }
 
   return (
-    <section className={"w-full lg:px-16 px-8 py-32 align-middle place-content-evenly text-primary font-open"} >
+    <section className={"w-full lg:px-16 px-8 py-32 align-middle place-content-evenly text-primary font-open animate animate-fade-in"} >
       <Toaster richColors/>
       <div className="flex lg:flex-row flex-col justify-evenly items-center">
         <div className="lg:w-2/5 w-full">

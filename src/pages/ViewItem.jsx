@@ -11,7 +11,7 @@ const ViewItem = () => {
 
     //console.log('HOLAAA');
 
-    const { addToCart } = UseCart()
+    const { addToCart, getCurrency } = UseCart()
 
     const [item, setItem] = useState();
 
@@ -89,7 +89,7 @@ const ViewItem = () => {
                 <div className='lg:w-auto w-full lg:px-0 md:px-8 px-4 lg:mt-0 mt-8'>
                     <h1 className="text-4xl font-bold">{item?.product_name}</h1>
                     <span>{item?.product_id}</span>
-                    <h3 className='lg:my-4 my-8 text-3xl'>${item?.product_price}</h3>
+                    <h3 className='lg:my-4 my-8 text-3xl'>{getCurrency(item?.product_price)}</h3>
                     <label className="w-auto flex flex-row items-center my-4">
                         <div className="label">
                             <span className="label-text">Cantidad:</span>
