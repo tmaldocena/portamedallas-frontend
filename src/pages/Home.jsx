@@ -12,14 +12,14 @@ const Home = () => {
 
   useEffect(() => {
 
-    let first = localStorage.getItem('firstTime') || 0;
+/*     let first = localStorage.getItem('firstTime') || 0;
 
     if (first === true) { localStorage.setItem('firstTime', 0) }
 
     if (first <= 5) {
-      document.getElementById('promo_modal').showModal()
       localStorage.setItem('firstTime', ++first);
-    }
+      } */
+   document.getElementById('promo_modal').showModal()
 
     toast.custom((t) => (
       <div className="bg-base-200 lg:p-4 p-2 rounded-lg">
