@@ -34,7 +34,7 @@ const Login = () => {
     }, [loginUser]);
 
     const fetchLogin = async (data) => {
-        fetch('http://localhost:3000/api/login', {
+        fetch('https://portamedallas-backend.vercel.app/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

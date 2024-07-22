@@ -22,7 +22,7 @@ export function UserProvider ({ children }) {
     }
 
     const logout = () =>{
-        fetch('http://localhost/api/logout');
+        fetch('https://portamedallas-backend.vercel.app/api/logout');
         setUser({});
         localStorage.removeItem('user');
         location.href = '/';
@@ -31,7 +31,7 @@ export function UserProvider ({ children }) {
     const register = async (data) => {
         console.log(data);
         try{
-            fetch('http://localhost:3000/api/register', {
+            fetch('https://portamedallas-backend.vercel.app/api/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

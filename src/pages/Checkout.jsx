@@ -84,7 +84,7 @@ const Checkout = () => {
     console.log(form);
 
     const saveOrder = async () => {
-        fetch('http://localhost:3000/api/orden/update',
+        fetch('https://portamedallas-backend.vercel.app/api/orden/update',
             {
                 method: 'POST',
                 headers: {

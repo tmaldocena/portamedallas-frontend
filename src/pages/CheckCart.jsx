@@ -17,7 +17,7 @@ const CheckCart = () => {
 
          try {
             setLoading(true);
-            fetch('http://localhost:3000/api/orden/create', 
+            fetch('https://portamedallas-backend.vercel.app/api/orden/create', 
                 {
                     method: 'POST',
                     headers: {

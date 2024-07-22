@@ -16,7 +16,7 @@ const Admin = () => {
     const getPedidos = async () => {
 
         try {
-            const res = fetch(`http://localhost:3000/api/orden/get`)
+            const res = fetch(`https://portamedallas-backend.vercel.app/api/orden/get`)
             //console.log(res);
             if (!res.ok) {
                 console.log('There was an error!');
@@ -73,7 +73,7 @@ const Admin = () => {
 
         try {
 
-            fetch(`http://localhost:3000/api/orden/update-state/${selectedOrden.orden_id}`,
+            fetch(`https://portamedallas-backend.vercel.app/api/orden/update-state/${selectedOrden.orden_id}`,
                 {
                     method: 'POST',
                     headers: {

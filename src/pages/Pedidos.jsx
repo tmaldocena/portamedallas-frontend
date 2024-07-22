@@ -15,7 +15,7 @@ const Pedidos = () => {
     const getPedidos = async () => {
 
         try {
-            const res = fetch(`http://localhost:3000/api/orden/user/${user.user.id}`)
+            const res = fetch(`https://portamedallas-backend.vercel.app/api/orden/user/${user.user.id}`)
             //console.log(res);
             if (!res.ok) {
                 console.log('There was an error!');
