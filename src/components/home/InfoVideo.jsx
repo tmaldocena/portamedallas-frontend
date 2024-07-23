@@ -8,7 +8,7 @@ const InfoVideo = () => {
                     <h2 className="text-2xl font-bold pb-4">¿Cómo los hacemos?</h2>
                     <p className="text-lg">Materiales de calidad, resitentes y de fácil colocado, son algunas de las características que presentan nuestros Portamedallas, haciendo de ellos un accesorio escencial para mostrar tus logros deportivos y personales.</p>
                 </div>
-                <video className="w-3/12 rounded-lg shadow-xl" controls controlsList="nodownload nofullscreen noremoteplayback">
+                <video className="lg:w-3/12 w-6/12 w rounded-lg shadow-xl" controls controlsList="nodownload nofullscreen noremoteplayback">
                     <source src="/assets/portamedallas-promo.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
