@@ -115,7 +115,7 @@ const Navbar = () => {
                 </nav>
             </header>
 
-            <header className="navbar fixed z-50 bg-primary lg:px-16 px-0 lg:hidden block">
+            <header className="navbar fixed z-50 bg-primary lg:px-16 px-0 pt-0 lg:hidden block">
                 <Marquee className='bg-accent px-16 justify-center'>
                     <span className='mx-4'><strong>Whatsapp:</strong> 320 6348134</span>
                     <span className='mx-4'><strong>Correo:</strong> info@portamedallas.com</span>
@@ -132,7 +132,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="xl:hidden">
-                        <a className="btn btn-link text-xl "><img src='./assets/logo-portamedallas-3.png' height={48} width={48}></img></a>
+                        <a className="btn btn-link text-xl "><img src='./assets/logo-portamedallas-3.png' height={80} width={80}></img></a>
                     </div>
                 </div>
                 <div className="xl:navbar-center xl:inline-block hidden">
