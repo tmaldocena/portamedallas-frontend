@@ -19,7 +19,7 @@ const Home = () => {
     if (first <= 5) {
       localStorage.setItem('firstTime', ++first);
       } */
-   document.getElementById('promo_modal').showModal()
+   //document.getElementById('promo_modal').showModal()
 
     toast.custom((t) => (
       <div className="bg-base-200 lg:p-4 p-2 rounded-lg">
@@ -39,19 +39,6 @@ const Home = () => {
   return (
     <div className="animate animate-fade-in">
       <Toaster position="bottom-left" richColors closeButton />
-      <dialog id="promo_modal" className="modal">
-        <div className="modal-box flex flex-col justify-center items-center ">
-          <form method="dialog">
-            {/* if there is a button in form, it will close the modal */}
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-          </form>
-          <video className="w-3/5 rounded-lg" controls controlsList="nodownload nofullscreen noremoteplayback">
-            <source src="/assets/portamedallas-promo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <a href="https://www.instagram.com/portamedallas/" target="_blank" rel="noreferrer" className="btn btn-link btn-primary">Ver más contenido en nuestro Instagram</a>
-        </div>
-      </dialog>
       <Hero />
       <About />
       <Populars />
@@ -63,3 +50,17 @@ const Home = () => {
 }
 
 export default Home
+
+{/* <dialog id="promo_modal" className="modal">
+        <div className="modal-box flex flex-col justify-center items-center ">
+          <form method="dialog">
+            /* if there is a button in form, it will close the modal 
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+          </form>
+          <video className="w-3/5 rounded-lg" controls controlsList="nodownload nofullscreen noremoteplayback">
+            <source src="/assets/portamedallas-promo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <a href="https://www.instagram.com/portamedallas/" target="_blank" rel="noreferrer" className="btn btn-link btn-primary">Ver más contenido en nuestro Instagram</a>
+        </div>
+      </dialog> */}

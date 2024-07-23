@@ -41,16 +41,17 @@ const categories = [
 ]
 
 const Carousel = () => {
-
+    
+    let x = 0
     const lastSlide = useRef(null);
     const firstSlide = useRef(null);
 
     const focusLast = () => {
-        document.getElementById('carousel').scrollBy(30, 0);
+        document.getElementById('carousel').scrollBy(x, 0);
       };
 
     const focusFirst = () => {
-        document.getElementById('carousel').scrollBy(-30, 0);
+        document.getElementById('carousel').scrollBy(x, 0);
       };
     
 
@@ -67,27 +68,27 @@ const Carousel = () => {
             </div>
             <div id="carousel" className="carousel carousel-end gap-4 py-12 w-full">
                 <div className="lg:ml-16 ml-4 carousel-item relative lg:w-1/5 w-1/3 min-h-40">
-                    <Link to='/tienda?cat=Running' ref={ firstSlide } className="flex flex-col gap-2 rounded-xl border-opacity-30 shadow-xl justify-center w-full items-center text-primary transition-all bg-neutral hover:bg-base-200 border border-accent">
-                        <box-icon name='run' color="#0D0E26" size="lg"></box-icon>
-                        <h4 className="font-bold text-center text-primary mx-2">Running</h4>
+                    <Link to='/tienda?cat=Running' ref={ firstSlide } className="flex flex-col gap-2 rounded-xl border-opacity-30 shadow-xl justify-center w-full items-center text-base-200 transition-all bg-secondary hover:bg-secondary/95 hover:shadow-2xl border border-accent">
+                        <box-icon name='run' color="#ffe4e6" size="lg"></box-icon>
+                        <h4 className="font-bold text-center text-base-100 mx-2">Running</h4>
                     </Link>
                 </div>
 
                 { categories.map(function(cat, key){
                     return(
                     <div key={key} id={cat.id} className="carousel-item relative lg:w-1/5 w-1/3">
-                    <Link to={`/tienda?cat=${cat.name}`} className="flex flex-col gap-2 rounded-xl border-opacity-30 shadow-xl justify-center w-full items-center text-primary transition-all bg-neutral hover:bg-base-200 border border-accent">
-                        <box-icon name={ cat.icon } color="#0D0E26" size="lg"></box-icon>
-                        <h4 className="font-bold text-center text-primary mx-2">{ cat.name }</h4>
+                    <Link to={`/tienda?cat=${cat.name}`} className="flex flex-col gap-2 rounded-xl border-opacity-30 shadow-xl justify-center w-full items-center text-primary transition-all bg-secondary hover:bg-secondary/95 hover:shadow-2xl border border-accent">
+                        <box-icon name={ cat.icon } color="#ffe4e6" size="lg"></box-icon>
+                        <h4 className="font-bold text-center text-base-100 mx-2">{ cat.name }</h4>
                     </Link>
                 </div>
                     )
                 })}
 
                 <div className="lg:pr-16 pr-4 carousel-item relative lg:w-1/5 w-1/3">
-                    <Link to='/tienda?cat=Mascotas' ref={lastSlide} className="flex flex-col gap-2 rounded-xl border-opacity-30 shadow-xl justify-center w-full items-center text-primary transition-all bg-neutral hover:bg-base-200 border border-accent">
-                    <box-icon name='cat' type="solid" color='#0D0E26' size="lg"></box-icon>
-                        <h4 className="font-bold text-center text-primary mx-2">Mascotas</h4>
+                    <Link to='/tienda?cat=Mascotas' ref={lastSlide} className="flex flex-col gap-2 rounded-xl border-opacity-30 shadow-xl justify-center w-full items-center text-primary transition-all bg-secondary hover:bg-secondary/95 hover:shadow-2xl border border-accent">
+                    <box-icon name='cat' type="solid" color='#ffe4e6' size="lg"></box-icon>
+                        <h4 className="font-bold text-center text-base-100 mx-2">Mascotas</h4>
                     </Link>
                 </div>
             </div>

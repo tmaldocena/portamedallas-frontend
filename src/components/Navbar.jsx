@@ -32,9 +32,8 @@ const Navbar = () => {
         <>
             <header className='lg:flex flex-col hidden'>
                 <Marquee className='bg-accent px-16 flex gap-4 justify-center'>
-                    <span className='mx-4'><strong>Teléfono:</strong> 3107719636</span>
-                    <span className='mx-4'><strong>Whatsapp:</strong> 320 6348134</span>
-                    <span className='mx-4'><strong>Correo:</strong> samuelcastro@eltrolley.com</span>
+                    <span className='mx-4'><strong>Whatsapp:</strong> 320-6348134</span>
+                    <span className='mx-4'><strong>Correo:</strong> info@portamedallas.com</span>
                 </Marquee>
                 <div className="navbar z-50 bg-primary lg:px-16 px-4 lg:flex md:hidden sm:hidden">
                     <div className="justify-start grow-0 mr-4">
