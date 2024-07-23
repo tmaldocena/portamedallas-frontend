@@ -132,7 +132,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="xl:hidden">
-                        <a className="btn btn-link text-xl "><img src='./assets/logo-portamedallas-2.png' height={48} width={48}></img></a>
+                        <a className="btn btn-link text-xl "><img src='./assets/logo-portamedallas-3.png' height={48} width={48}></img></a>
                     </div>
                 </div>
                 <div className="xl:navbar-center xl:inline-block hidden">
