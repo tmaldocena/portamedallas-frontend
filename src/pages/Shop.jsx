@@ -104,7 +104,7 @@ const Shop = () => {
 {/*             <div className="w-full bg-accent py-8">
                 <h2 className="text-center text-3xl">Portamedallas</h2>
             </div> */}
-            <img src="/assets/banner-feria-pm.jpg" alt="Banner de Feria en Portamedallas" />
+            <img className="lg:pt-0 pt-24 bg-primary" src="/assets/banner-feria-pm.jpg" alt="Banner de Feria en Portamedallas" />
             <div className="flex lg:flex-row flex-col items-center">
                 <h2 className="lg:w-1/5 w-auto p-8 text-3xl font-bold">Tienda</h2>
                 <div className="lg:w-4/5 w-full lg:px-8 md:px-6 px-4 flex lg:flex-row flex-col lg:gap-0 gap-4 items-center justify-center">
