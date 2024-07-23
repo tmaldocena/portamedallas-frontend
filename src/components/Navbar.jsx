@@ -117,9 +117,8 @@ const Navbar = () => {
 
             <header className="navbar fixed z-50 bg-primary lg:px-16 px-0 lg:hidden block">
                 <Marquee className='bg-accent px-16 justify-center'>
-                    <span className='mx-4'><strong>Teléfono:</strong> 3107719636</span>
                     <span className='mx-4'><strong>Whatsapp:</strong> 320 6348134</span>
-                    <span className='mx-4'><strong>Correo:</strong> samuelcastro@eltrolley.com</span>
+                    <span className='mx-4'><strong>Correo:</strong> info@portamedallas.com</span>
                 </Marquee>
                 <div className="navbar-start">
                     <div className="dropdown">
