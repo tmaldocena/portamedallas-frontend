@@ -41,6 +41,7 @@ const Card = ({ item }) => {
         decrementCounter = () => setAmount(1);
     }
 
+
     const addItem = (item, amount) => {
         addToCart(item, amount)
         setTimeout(() => {
@@ -64,7 +65,14 @@ const Card = ({ item }) => {
                 )
             }
             <Link to={'/item/' + item.product_id}>
-                <figure><img src={(item.product_category === 'Mascotas' ? getCollar(item.product_name) : `./assets/products/${item.product_slug}/${item.product_slug}.jpg`)} alt="Portamedallas" /></figure>
+            {
+                item.product_name.includes('Rosado') && (
+                    <figure><img src={`./assets/products/${item.product_slug}/${item.product_slug}-pink.jpg`} alt="Portamedallas" /></figure>
+
+                ) || (
+                    <figure><img src={(item.product_category === 'Mascotas' ? getCollar(item.product_name) : `./assets/products/${item.product_slug}/${item.product_slug}.jpg`)} alt="Portamedallas" /></figure>
+                )
+            }
             </Link>
             <div className="card-body">
                 <h2 className="card-title text-base">

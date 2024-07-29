@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import CardImage from "./CardImage";
 
-const ViewImage = ({ item }) => {
+const ViewImage = ({ item, name }) => {
 
     const [bigImage, setBigImage] = useState('');
     const [slug, setSlug] = useState();
@@ -24,17 +24,17 @@ const ViewImage = ({ item }) => {
         }
     }
 
-    
+
     useEffect(() => {
         getProduct();
 
         return setSlug('');
     }, []);
 
-    const images = [ `../assets/products/${slug?.product_slug}/${slug?.product_slug}.jpg`,
-        `../assets/products/${slug?.product_slug}/${slug?.product_slug}2.jpg`,
-        `../assets/products/${slug?.product_slug}/${slug?.product_slug}3.jpg`,
-        `../assets/products/${slug?.product_slug}/${slug?.product_slug}4.jpg`
+    const images = [`../assets/products/${slug?.product_slug}/${slug?.product_slug}.jpg`,
+    `../assets/products/${slug?.product_slug}/${slug?.product_slug}2.jpg`,
+    `../assets/products/${slug?.product_slug}/${slug?.product_slug}3.jpg`,
+    `../assets/products/${slug?.product_slug}/${slug?.product_slug}4.jpg`
     ]
     const pink = [
         `../assets/products/${slug?.product_slug}/${slug?.product_slug}-pink.jpg`,
@@ -45,8 +45,22 @@ const ViewImage = ({ item }) => {
 
     console.log(pink);
 
-    return (
-        <div className="mt-2 relative lg:px-0 md:px-8 px-4 flex-1 flex lg:flex-row-reverse flex-col gap-2 justify-center items-center ">
+
+    if (name?.includes('Rosado')) {
+        return (
+            <div className="mt-2 relative lg:px-0 md:px-8 px-4 flex-1 flex lg:flex-row-reverse flex-col gap-2 justify-center items-center ">
+                <img src={bigImage || `../assets/products/${slug?.product_slug}/${slug?.product_slug}-pink.jpg`} alt="show collection" className="object-contain w-auto lg:h-96 rounded-lg shadow-2xl" />
+                <div className="flex lg:flex-col-reverse flex-row-reverse lg:gap-4 md:gap-12 gap-4 mt-6" >
+                    {
+                        pink?.map((image, index) => (
+                            <CardImage imgURL={image} key={index} mainImage={bigImage} changeImage={setBigImage} />
+                        ))
+                    }
+                </div>
+            </div>
+        )
+    } else {
+        < div className="mt-2 relative lg:px-0 md:px-8 px-4 flex-1 flex lg:flex-row-reverse flex-col gap-2 justify-center items-center " >
             <img src={bigImage || `../assets/products/${slug?.product_slug}/${slug?.product_slug}.jpg`} alt="show collection" className="object-contain w-auto lg:h-96 rounded-lg shadow-2xl" />
             <div className="flex lg:flex-col-reverse flex-row-reverse lg:gap-4 md:gap-12 gap-4 mt-6" >
                 {
@@ -55,8 +69,8 @@ const ViewImage = ({ item }) => {
                     ))
                 }
             </div>
-        </div>
-    );
+        </div >
+    }
 };
 
 

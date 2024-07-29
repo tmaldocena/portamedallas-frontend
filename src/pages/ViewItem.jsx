@@ -83,7 +83,7 @@ const ViewItem = () => {
                         </ul>
                     </div>
 
-                    <ViewImage item={id} />
+                    <ViewImage item={id} name={item?.product_name} />
                 </div>
 
                 <div className='lg:w-auto w-full lg:px-0 md:px-8 px-4 lg:mt-0 mt-8'>
